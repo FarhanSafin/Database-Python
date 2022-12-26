@@ -8,10 +8,13 @@ A library for storing strings in binary data files
 A library for reading from binary data files
 You must import these three libraries in two different Python files that you will write.
 In your first Python file, you will write code for storing a series of records about a single relation in a data file. That file should prompt the user, within a while loop,
+to decide if he/she wants to add more records or quit. If the user chooses the add a record option, you will allow him/her to type a comma-separated record and press enter.
+You will convert that record to a string, and then append the record to a single data file using the first two libraries I provided. If the user chooses the quit option, then you stop the program.
 
-to decide if he/she wants to add more records or quit. If the user chooses the add a record option, you will allow him/her to type a comma-separated record and press enter. You will convert that record to a string, and then append the record to a single data file using the first two libraries I provided. If the user chooses the quit option, then you stop the program.
-In your second Python file, you will just read all the records you stored by running your first file and display the records on the screen. There should be one record per line. For this operation, you will use my last library to read record strings from the data file and the first library to convert the string to a list-format record.
-You can discuss with other groups (a group can have 2 students), but your group must do coding on its own. The following is the definition of the relation/table that you will use for the store and retrieval experiment:
+In your second Python file, you will just read all the records you stored by running your first file and display the records on the screen.
+There should be one record per line. For this operation, you will use my last library to read record strings from the data file and the first library to convert the string to a list-format record.
+You can discuss with other groups (a group can have 2 students), but your group must do coding on its own.
+The following is the definition of the relation/table that you will use for the store and retrieval experiment:
 
 Student Relation
 ----------------------------------------------------

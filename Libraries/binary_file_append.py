@@ -19,15 +19,15 @@ def createOrOpenFileForAppend(pathToFile):
     f = open(pathToFile, 'a+b')
     return f
 
+
 # this function can be used to append a new content at the end of a binary file
 # that has been opened already; the function returns the index in the file where
 # the writing started. This index should be useful for indexing.
 def appendToFile(fileHandle, content):
-    
     # Determine the end byte-index of the file before writing. We will need this
     # index for indexing
     writingStartsAt = fileHandle.tell()
-    
+
     if (isinstance(content, str)):
         # if the content is an string then we first have to encode it before 
         # converting it into a binary array
@@ -41,18 +41,19 @@ def appendToFile(fileHandle, content):
         data = strData.encode()
         binaryData = bytearray(data)
         fileHandle.write(binaryData)
-        
-    return writingStartsAt        
+
+    return writingStartsAt
+
 
 # one should always close a file when it is no longer needed
 def closeFile(fileHandle):
     fileHandle.close()
- 
+
+
 # This is a test function that will open a file, do some writing, and then 
 # close it. This operation is repeated twice to show that file appending works
 # properly
 def testFileWriting(pathToFile):
-    
     f = createOrOpenFileForAppend(pathToFile)
     messagesSet1 = ["Hello World Cup!", "I am unhappy.", "How are you?"]
     for message in messagesSet1:
@@ -65,8 +66,8 @@ def testFileWriting(pathToFile):
     for message in messagesSet2:
         writingIndex = writingIndex = appendToFile(f, message)
         print(writingIndex)
-    closeFile(f) 
-    
+    closeFile(f)
+
 # Here we invoke the file writing test function with a path; change the path 
 # argument with a value appropriate for your computer 
-testFileWriting("E:\\Brac-University\\testFile")
+# testFileWriting("E:\\Brac-University\\testFile")

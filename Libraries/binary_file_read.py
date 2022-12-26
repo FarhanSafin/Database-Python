@@ -21,6 +21,7 @@ needed to read records from persistent data files.
 # approach for the current version of the database project. 
 RECORD_SEPARATOR = "******"
 
+
 # Since database systems store files in the binary format, the reading must be
 # done in that format also. the following utility function let the user open a 
 # file in binary mode for reading
@@ -37,8 +38,8 @@ def openFile(filePath):
 # from where we want to read. This function does that cursor moving.
 def jumpToReadingOffset(offset, fileHandle):
     fileHandle.seek(offset)
-    
-    
+
+
 # This function reads the specified number of bytes from the file from its 
 # current read location. Use this function when you know how many bytes you 
 # want to read and are sure that the file has at least that much data from its
@@ -47,24 +48,24 @@ def readBytes(byteCount, fileHandle):
     chunk = fileHandle.read(byteCount)
     return chunk
 
+
 # This function reads as many bytes as possible starting from the current file
 # read cursor position until record separator string is found. Using this 
 # function is convenient when we do not keep track database record lengths else-
 # where in the system and consequently, do not know how many bytes to read to
 # complete reading a single record.
 def readRecord(fileHandle):
-    
     # first get the byte array for the record separator
     separatorArray = bytearray(RECORD_SEPARATOR.encode())
-    
+
     # we will keep a list where we will put byte sequence that match the prefix
     # of separatorArray. If the prefix become equivalent to the whole record
     # separator then it means we found the record ending
     separatorMatcherList = []
-    
+
     # the following buffer is for holding the bytes of the record we read
     recordBytes = []
-    
+
     # keep reading one byte after another from the current position of the file
     # in a loop
     while True:
@@ -83,30 +84,28 @@ def readRecord(fileHandle):
                 # this indicates that we are done reading the record
                 break
         else:
-           # the current bytes did not match the byte expected for the separator
-           # hence, we should add everything in the separatorMatcher and the 
-           # current byte to the record bytes
-           recordBytes.extend(separatorMatcherList)
-           recordBytes.append(byte)
-           # reset the separator matcher
-           separatorMatcherList.clear()
-       
+            # the current bytes did not match the byte expected for the separator
+            # hence, we should add everything in the separatorMatcher and the
+            # current byte to the record bytes
+            recordBytes.extend(separatorMatcherList)
+            recordBytes.append(byte)
+            # reset the separator matcher
+            separatorMatcherList.clear()
+
     return bytearray(recordBytes)
-           
-           
-            
+
 
 # The following routine is used to close an already open file. It is important
 # that one close the file when it is no longer needed to save hardware resources.
 def closeFile(fileHandle):
     fileHandle.close()
-    
+
+
 # This is a test function that reads bytes from a sample file in different ways.    
 def testBinaryFileReading(pathToFile):
-    
     # first we open the file
     file = openFile(pathToFile)
-    
+
     # then test sequential readings to illustrate that as you invoke the 
     # readBytes function again and again, you get different contents
     print("Testing sequential reading of fixed number of bytes")
@@ -117,7 +116,7 @@ def testBinaryFileReading(pathToFile):
         # the chunk into a string
         string = chunk.decode()
         print(string)
-        
+
     # then we test that we can read from arbitrary location by changing the 
     # file's read cursor position before reading
     print("Testing random index reading of fixed number of bytes")
@@ -128,7 +127,7 @@ def testBinaryFileReading(pathToFile):
         chunk = readBytes(4, file)
         string = chunk.decode()
         print(string)
-        
+
     # then we test if the mechanism for reading records work correctly or not
     print("Testing reading a whole string format record")
     jumpToReadingOffset(0, file)
@@ -136,9 +135,9 @@ def testBinaryFileReading(pathToFile):
         chunk = readRecord(file)
         string = chunk.decode()
         print(string)
-        
+
     # we should close the file once we are done with our reading experiments
-    closeFile(file)      
-    
+    closeFile(file)
+
 # invoking the test function
-testBinaryFileReading("E:\\Brac-University\\testFile")    
+# testBinaryFileReading("E:\\Brac-University\\testFile")
