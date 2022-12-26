@@ -1,10 +1,4 @@
-# Testing
-class Name:
-    def __init__(self, names, money):
-        self.name = names
-        self.money = money
-
-
-Farhan = Name("Farhan", "45")
-print(Farhan.name)
-print(Farhan.money)
+# Importing Libraries
+import Libraries.binary_file_read as read
+import Libraries.binary_file_append as append
+import Libraries.record_to_string_convert as convert
