@@ -20,6 +20,7 @@ File Description:
 - Storing_Records file is used to save input from the user in the "Data" file
 - Reading_Records file is used to retrieve the data from the user and display it.
 - Three(3) Libraries available in the library folder.
+- Test functions available in the libraries. The call of these functions are commented out.
 
 ## Installation
 
