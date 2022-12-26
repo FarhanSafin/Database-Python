@@ -140,4 +140,4 @@ def testBinaryFileReading(pathToFile):
     closeFile(file)
 
 # invoking the test function
-# testBinaryFileReading("E:\\Brac-University\\testFile")
+# testBinaryFileReading("E:\BRACU\POSTGRADUATION\Fall-2022\CSE716\PROJECT\Data")
