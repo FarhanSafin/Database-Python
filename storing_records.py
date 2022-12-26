@@ -17,3 +17,6 @@ while True:
     record = [ID, Name, BirthDate, Address]
     record_str = convert.stringifyRecord(record)
     print(record_str)
+
+file = append.createOrOpenFileForAppend("Data")
+append.appendToFile(file, record_str)
