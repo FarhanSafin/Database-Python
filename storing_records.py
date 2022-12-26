@@ -1,11 +1,9 @@
 # Importing Libraries
-import Libraries.binary_file_read as read
 import Libraries.binary_file_append as append
 import Libraries.record_to_string_convert as convert
 
 # Continuously prompt the user for input until they choose to quit
 while True:
-    # Prompt the user to enter the attributes
     ID = input("Enter the ID (or 'q' to quit): ")
     if ID == 'q':
         break
