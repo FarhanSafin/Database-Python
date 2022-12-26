@@ -50,7 +50,7 @@ def closeFile(fileHandle):
     fileHandle.close()
 
 
-# This is a test function that will open a file, do some writing, and then 
+# This is a test function that will open a file, do some writing, and then
 # close it. This operation is repeated twice to show that file appending works
 # properly
 def testFileWriting(pathToFile):
@@ -68,6 +68,7 @@ def testFileWriting(pathToFile):
         print(writingIndex)
     closeFile(f)
 
-# Here we invoke the file writing test function with a path; change the path 
-# argument with a value appropriate for your computer 
+
+# Here we invoke the file writing test function with a path; change the path
+# argument with a value appropriate for your computer
 # testFileWriting("E:\\Brac-University\\testFile")
